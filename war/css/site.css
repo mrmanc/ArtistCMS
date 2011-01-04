@@ -1,0 +1,114 @@
+p {
+	margin-bottom: 0.5em;
+	margin-top: 0.5em;
+}
+body, td, p {
+	color: #6F686A;
+}
+body {
+	color: blue;
+	margin-top: 0;
+	color: #333333;
+	font-family:Arial, Helvetica, sans-serif;
+	font-size:8pt;
+}
+table.layout {
+	height: 500px;
+}
+td.content {
+	vertical-align: top;
+	text-align: left;
+	background-image: url('/images/banner.jpg');
+	background-repeat:no-repeat;
+	background-position:top left;
+	width: 770px;
+	padding: 60px 10px 10px 10px;
+}
+td.side {
+	width: 10px;
+	background-repeat:repeat-y;
+	background-position:top;
+}
+td.right {
+	background-image: url('/images/fade_right.png');
+}
+td.left {
+	background-image: url('/images/fade_left.png');
+}
+tr.bottom td.left {
+	background-repeat:no-repeat;
+	background-position:top;
+	background-image: url('/images/left_corner.png');
+}
+tr.bottom td.right {
+	background-repeat:no-repeat;
+	background-position:top;
+	background-image: url('/images/right_corner.png');
+}
+tr.bottom td.centre {
+	background-repeat:repeat-x;
+	background-position:top;
+	background-image: url('/images/fade_bottom.png');
+}
+
+.centre-align {
+	text-align: center;
+}
+
+.caption {
+	font-size: 13pt;
+	font-weight: bold;
+	font-family: Arial, Helvetica, sans-serif;
+	text-align: left;
+	font-style: italic;
+	color: #A99FC4;
+}
+
+ul.menu {
+	text-align: right;
+}
+ul.menu li{
+	display: inline;
+	list-style-type: none;
+	margin-left: 10px;
+}
+ul.menu li a {
+	color: #DBCFFF;
+	border: 1px solid #DBCFFF;
+	background-color: #4E4A4B;
+	text-decoration: none;
+	font-size: 10pt;
+	padding: 1px 3px 1px 3px;
+}
+ul.menu li a:link:hover, ul.menu li a:visited:hover {
+	text-decoration: none;
+	color: white;
+	border: 1px solid white;
+	background-color: #6F686A;
+}
+
+
+a { 
+	color: inherit;
+}
+:link:hover, :visited:hover {
+	text-decoration: underline;
+	color: #0000FF; 
+}
+
+span.links a {
+	color: #999999;
+}
+
+h1 {
+	font-size: 18pt;
+	margin: 40px 0 0 0;
+	color: #88819F;
+	padding: 3px 3px 3px 0;
+	width: auto;
+}
+h2 {
+	font-size: 12pt;
+	color: #88819F;
+	margin: .75em 0 .75em 0;
+}
