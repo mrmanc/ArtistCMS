@@ -13,7 +13,9 @@ public class EventManager {
 
 	public List<Event> loadCurrentEvents() {
 		PersistenceManager manager = PMFSingleton.get().getPersistenceManager();
-		return (List<Event>)manager.newQuery("select from " + Event.class.getName()).execute();
+		Query query = manager.newQuery("select from " + Event.class.getName());
+		query.setOrdering("endDate desc");
+		return (List<Event>)query.execute();
 	}
 
 	public List<Event> loadPastEvents() {

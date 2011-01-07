@@ -41,20 +41,101 @@
 
 			<c:forEach var="event" items="${actionBean.pastEvents}">
 				<tr>
-	   				<td>${event.date}</td>
+	   				<td>${event.shortDate}</td>
 	    			<td>${event.description}</td>
 	    			<td>${event.location}</td>
 	    		</tr>
 	    	</c:forEach>
 
+							<tr>
+							  <td>Sept 2010</td>
+							  <td><a href="http://www.artistsatwork.org.uk/" target="_blank">Cheshire Open Studios</a></td>
+							  <td>16 Vale Head, Handforth, Wilmslow, Cheshire, SK9 3BP</td>
+							</tr>
+							<tr>
+							  <td>Sept 2010</td>
+							  <td><a href="http://www.wirksworthfestival.co.uk" target="_blank">Wirksworth Festival</a></td>
+							  <td>Wirksworth, Derbyshire</td>
+							</tr>
+							<tr>
+								<td>Oct 2010</td>
+								<td><a href="http://www.theartofcaring.org.uk/" target="_blank">East Cheshire Hospice Art Fair</a></td>
+								<td>Town Hall, Macclesfield</td>
+							</tr>
 
-			<tr>
-			  <td> July 2009</td>
-			  <td>CAN Exhibition at RHS show</td>
-			  <td> Tatton Park, Cheshire </td>
-			</tr>
+
+							<tr>
+								<td>July 2010</td>
+								<td><a href="http://www.potfest.co.uk/" target="_blank">Potfest in the Park</a></td>
+								<td>Hutton in the Forest, Penrith</td>
+							</tr>
+						<tr>
+						  <td>May 2010</td>
+						  <td><a href="http://www.loacaart.co.uk/" target="_blank">Contemporary Craft &amp; Art Event</a></td>
+						  <td>Bluecoat Arts Centre, Liverpool</td>
+						</tr>
+						<tr>
+						  <td>May 2010</td>
+						  <td><a href="http://www.keramiekmarkt-swalmen.nl/" target="_blank">International Ceramic Market</a></td>
+						  <td>Swalmen, Holland</td>
+						</tr>
+						<tr>
+						  <td>May 2010</td>
+						  <td><a href="http://goudsekeramiekdagen.nl/" target="_blank">Keramiek Dagen</a></td>
+						  <td>Gouda, Holland</td>
+						</tr>
+						<tr>
+						  <td>Apr &ndash; May 2010</td>
+						  <td><a href="http://www.maynard.co.uk/upcoming_events/2010/01/a-celebration-of-art/" target="_blank">A Celebration of Art</a></td>
+						  <td>Maynard School, Exeter</td>
+						</tr>
+						<tr>
+						  <td>April 2010</td>
+						  <td><a href="http://www.calidadevents.co.uk/larklanedates.html" target="_blank">Lark Lane Police Station</a></td>
+						  <td>Liverpool, L17 8UU</td>
+						</tr>
+						<tr>
+						  <td>Apr &ndash; June 2010</td>
+						  <td><a href="http://www.showborough.com/" target="_blank">Garden Art Exhibition</a></td>
+						  <td>Showborough House, Gloucs</td>
+						</tr>
+						<tr>
+						  <td>March 2010</td>
+						  <td><a href="http://www.loacaart.co.uk/" target="_blank">Contemporary Craft &amp; Art Event</a></td>
+						  <td>Bluecoat Arts Centre, Liverpool</td>
+						</tr>
+						<tr>
+						  <td>February 2010</td>
+						  <td><a href="http://www.calidadevents.co.uk/heritagemarket.html" target="_blank">Heritage Market</a></td>
+						  <td>Liverpool, L3 0AN</td>
+						</tr>
 
 
+						
+
+						
+						<tr>
+						  <td>Sept 2009</td>
+						  <td>Mount Pleasant gardens Sculpture Exhibition</td>
+						  <td>Kelsall, Cheshire</td>
+						</tr>
+						<tr>
+						  <td>Sept 2009</td>
+						  <td>Wirksworth Art Trail</td>
+						  <td>Wirksworth Derbyshire</td>
+						</tr>
+						<tr>
+						  <td>Sept 2009</td>
+						  <td>Cheshire Open Studios</td>
+						  <td>Vale Head, Handforth, Cheshire</td>
+						</tr>
+						
+						<tr>
+						  <td> July 2009</td>
+						  <td>Cheshire Artists
+						  Network Exhibition at RHS show</td>
+						  <td> Tatton Park, Cheshire </td>
+						</tr>
 
 			<tr>
 			  <td> July 2009</td>

@@ -35,7 +35,7 @@
 	    		<tr>
 	   				<td>${event.startDate}</td>
 	   				<td>${event.endDate}</td>
-	   				<td>${event.date}</td>
+	   				<td>${event.shortDate}</td>
 	    			<td>${event.description}</td>
 	    			<td>${event.link}</td>
 	    			<td>${event.location}</td>

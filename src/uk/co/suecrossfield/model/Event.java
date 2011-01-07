@@ -1,6 +1,5 @@
 package uk.co.suecrossfield.model;
 
-import java.net.URL;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
@@ -12,10 +11,16 @@ import javax.jdo.annotations.PersistenceCapable;
 import javax.jdo.annotations.Persistent;
 import javax.jdo.annotations.PrimaryKey;
 
+import uk.co.suecrossfield.RichDateFormat;
+
 @PersistenceCapable(identityType = IdentityType.APPLICATION)
 public class Event {
-	private static final String DATE_FORMAT_DAY = "dd";
-	private static final SimpleDateFormat DATE_FORMAT_MONTH_DAY = new SimpleDateFormat("MMM dd");
+	private static final String DASH = " - ";
+	private static final String DATE_FORMAT_DAY = "dth";
+	private static final String DATE_FORMAT_MONTH_YEAR = "MMM yyyy";
+	private static final RichDateFormat DATE_FORMAT_MONTH_DAY = new RichDateFormat("MMM dth");
+	private static final String DATE_FORMAT_MONTH = "MMM";
+	private static final RichDateFormat DATE_FORMAT_YEAR = new RichDateFormat("yyyy");
 	@PrimaryKey
     @Persistent(valueStrategy = IdGeneratorStrategy.IDENTITY)
 	private Long id;
@@ -30,28 +35,75 @@ public class Event {
 	@Persistent
 	private String link;
 	
-	
-	public String getDate() {
+	public String getShortDate() {
 		String result = "";
-		if(startDate != null) {
-			Calendar startCal = new GregorianCalendar();
-			startCal.setTime(startDate);
-			
-			if (endDate == null || startDate.compareTo(endDate) == 0) {
-				result = DATE_FORMAT_MONTH_DAY.format(startDate);
+		if (startDate != null) {
+			if (this.isOneMonthEvent()) {
+				result = monthAndYearOf(startDate);
 			}
 			else {
-				Calendar endCal = new GregorianCalendar();
-				endCal.setTime(endDate);
-				if (startCal.get(Calendar.MONTH) == endCal.get(Calendar.MONTH)) {
-					result = DATE_FORMAT_MONTH_DAY.format(startDate) + " - " + new SimpleDateFormat(DATE_FORMAT_DAY).format(endDate);
-				}
-				else {
-					result = DATE_FORMAT_MONTH_DAY.format(startDate) + " - " + DATE_FORMAT_MONTH_DAY.format(endDate);
-				}
+				result = monthOf(startDate) + DASH + monthAndYearOf(endDate);
 			}
 		}
 		return result;
+	}
+	
+	private String monthOf(Date date) {
+		return new SimpleDateFormat(DATE_FORMAT_MONTH).format(date);
+	}
+
+	private String monthAndYearOf(Date date) {
+		return new SimpleDateFormat(DATE_FORMAT_MONTH_YEAR).format(date);
+	}
+
+	public String getDate() {
+		String result = "";
+		if(startDate != null) {
+			
+			if (this.isOneDayEvent()) {
+				result = monthAndDayOf(startDate) + " " + yearOf(startDate);
+			}
+			else {
+				if (this.isOneMonthEvent()) {
+					result = monthAndDayOf(startDate) + DASH + dayOf(endDate) + " " + yearOf(endDate);
+				}
+				else {
+					result = monthAndDayOf(startDate) + DASH + monthAndDayOf(endDate) + " " + yearOf(endDate);
+				}
+			}
+		}
+//		RichDateFormat richDateFormat = new RichDateFormat("dth MMM yyyy");
+//		result = richDateFormat.format(startDate) + DASH + richDateFormat.format(endDate);
+		return result;
+	}
+
+	private boolean isOneMonthEvent() {
+		return sameMonth(startDate, endDate);
+	}
+
+	private boolean sameMonth(Date startDate, Date endDate) {
+		Calendar startCal = new GregorianCalendar();
+		startCal.setTime(startDate);
+		Calendar endCal = new GregorianCalendar();
+		endCal.setTime(endDate);
+		boolean sameMonth = startCal.get(Calendar.MONTH) == endCal.get(Calendar.MONTH);
+		return sameMonth;
+	}
+
+	private String dayOf(Date date) {
+		return new RichDateFormat(DATE_FORMAT_DAY).format(date);
+	}
+
+	private String monthAndDayOf(Date date) {
+		return DATE_FORMAT_MONTH_DAY.format(date);
+	}
+
+	private String yearOf(Date date) {
+		return DATE_FORMAT_YEAR.format(date);
+	}
+
+	private boolean isOneDayEvent() {
+		return endDate == null || startDate.compareTo(endDate) == 0;
 	}
 	
 	public Long getId() {
