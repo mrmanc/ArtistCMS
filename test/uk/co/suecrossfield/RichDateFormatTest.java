@@ -21,6 +21,9 @@ public class RichDateFormatTest {
 	@Test
 	public void richFormatDate() {
 		Assert.assertEquals("1st Jan 2011", new RichDateFormat("dth MMM yyyy").format(JAN_1));
+		Assert.assertEquals("1st {1st} Jan 2011", new RichDateFormat("dth {dth} MMM yyyy").format(JAN_1));
+		Assert.assertEquals("1st Jan 1st 2011", new RichDateFormat("dth MMM dth yyyy").format(JAN_1));
+		Assert.assertEquals("1st Jan 2011 1st", new RichDateFormat("dth MMM yyyy dth").format(JAN_1));
 	}
 	
 	@Test

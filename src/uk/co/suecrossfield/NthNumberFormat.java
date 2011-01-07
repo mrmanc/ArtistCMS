@@ -7,22 +7,21 @@ import java.text.ParsePosition;
 public class NthNumberFormat extends NumberFormat {
 	private static final long serialVersionUID = 1777197709015931511L;
 
-	public String format(int i) {
-		if (i > 10 && i < 14) {
-			return i + "th";
+	public String format(int number) {
+		int modHundred = number % 100;
+		if (modHundred > 10 && modHundred < 14) {
+			return number + "th";
 		}
-		else {
-			int end = i % 10;
-			switch (end) {
-			case 1:
-				return i + "st";
-			case 2:
-				return i + "nd";
-			case 3:
-				return i + "rd";
-			default:
-				return i + "th";
-			}
+		int end = number % 10;
+		switch (end) {
+		case 1:
+			return number + "st";
+		case 2:
+			return number + "nd";
+		case 3:
+			return number + "rd";
+		default:
+			return number + "th";
 		}
 	}
 
