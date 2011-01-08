@@ -11,6 +11,9 @@ import javax.jdo.annotations.PersistenceCapable;
 import javax.jdo.annotations.Persistent;
 import javax.jdo.annotations.PrimaryKey;
 
+import uk.co.suecrossfield.CoarseDateRangeFormat;
+import uk.co.suecrossfield.DateRange;
+import uk.co.suecrossfield.DateRangeFormat;
 import uk.co.suecrossfield.RichDateFormat;
 
 @PersistenceCapable(identityType = IdentityType.APPLICATION)
@@ -36,16 +39,17 @@ public class Event {
 	private String link;
 	
 	public String getShortDate() {
-		String result = "";
-		if (startDate != null) {
-			if (this.isOneMonthEvent()) {
-				result = monthAndYearOf(startDate);
-			}
-			else {
-				result = monthOf(startDate) + DASH + monthAndYearOf(endDate);
-			}
-		}
-		return result;
+		// String result = "";
+		// if (startDate != null) {
+		// if (this.isOneMonthEvent()) {
+		// result = monthAndYearOf(startDate);
+		// }
+		// else {
+		// result = monthOf(startDate) + DASH + monthAndYearOf(endDate);
+		// }
+		// }
+		// return result;
+		return new CoarseDateRangeFormat().format(new DateRange(startDate, endDate));
 	}
 	
 	private String monthOf(Date date) {
@@ -57,24 +61,25 @@ public class Event {
 	}
 
 	public String getDate() {
-		String result = "";
-		if(startDate != null) {
-			
-			if (this.isOneDayEvent()) {
-				result = monthAndDayOf(startDate) + " " + yearOf(startDate);
-			}
-			else {
-				if (this.isOneMonthEvent()) {
-					result = monthAndDayOf(startDate) + DASH + dayOf(endDate) + " " + yearOf(endDate);
-				}
-				else {
-					result = monthAndDayOf(startDate) + DASH + monthAndDayOf(endDate) + " " + yearOf(endDate);
-				}
-			}
-		}
-//		RichDateFormat richDateFormat = new RichDateFormat("dth MMM yyyy");
-//		result = richDateFormat.format(startDate) + DASH + richDateFormat.format(endDate);
-		return result;
+		// String result = "";
+		// if(startDate != null) {
+		//			
+		// if (this.isOneDayEvent()) {
+		// result = monthAndDayOf(startDate) + " " + yearOf(startDate);
+		// }
+		// else {
+		// if (this.isOneMonthEvent()) {
+		// result = monthAndDayOf(startDate) + DASH + dayOf(endDate) + " " +
+		// yearOf(endDate);
+		// }
+		// else {
+		// result = monthAndDayOf(startDate) + DASH + monthAndDayOf(endDate) +
+		// " " + yearOf(endDate);
+		// }
+		// }
+		// }
+		// return result;
+		return new DateRangeFormat().format(new DateRange(startDate, endDate));
 	}
 
 	private boolean isOneMonthEvent() {
