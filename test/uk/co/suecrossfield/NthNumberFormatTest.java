@@ -1,14 +1,15 @@
 package uk.co.suecrossfield;
+
+import static org.hamcrest.MatcherAssert.assertThat;
+import static org.hamcrest.Matchers.is;
+
 import java.util.Arrays;
 import java.util.Collection;
 
-import org.junit.Assert;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.junit.runners.Parameterized;
 import org.junit.runners.Parameterized.Parameters;
-
-import uk.co.suecrossfield.NthNumberFormat;
 
 @RunWith(Parameterized.class)
 
@@ -85,6 +86,6 @@ public class NthNumberFormatTest {
 	
 	@Test
 	public void number() {
-		Assert.assertEquals(expected, new NthNumberFormat().format(number));
+		assertThat(expected, is(new NthNumberFormat().format(number)));
 	}
 }

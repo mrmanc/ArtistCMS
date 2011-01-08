@@ -37,17 +37,17 @@ public class DateRangeFormatTest {
 
 	@Test
 	public void oneDayRange() {
-		assertThat(formatter.format(dateRange(JAN_01, JAN_02)), is("Jan 1st - 2nd 2011"));
+		assertThat(formatter.format(dateRange(JAN_01, JAN_02)), is("Jan 1st Ð 2nd 2011"));
 	}
 
 	@Test
 	public void oneDayRangeOverMonthBoundary() {
-		assertThat(formatter.format(dateRange(JAN_31, FEB_01)), is("Jan 31st - Feb 1st 2011"));
+		assertThat(formatter.format(dateRange(JAN_31, FEB_01)), is("Jan 31st Ð Feb 1st 2011"));
 	}
 
 	@Test
 	public void oneDayRangeOverYearBoundary() {
-		assertThat(formatter.format(dateRange(DEC_31, JAN_01)), is("Dec 31st 2010 - Jan 1st 2011"));
+		assertThat(formatter.format(dateRange(DEC_31, JAN_01)), is("Dec 31st 2010 Ð Jan 1st 2011"));
 	}
 
 }

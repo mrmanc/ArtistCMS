@@ -14,8 +14,6 @@ public class WelcomeActionBean extends BaseActionBean {
 	private static final String INDEX_JSP = "WEB-INF/index.jsp";
 	private List<Event> currentEvents;
 	public WelcomeActionBean() {
-//		UserService userService = UserServiceFactory.getUserService();
-//		this.user = userService.getCurrentUser();
 	}
 	
 	

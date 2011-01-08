@@ -2,6 +2,11 @@ package uk.co.suecrossfield;
 
 public class DateRangeFormat {
 
+	protected static final String YEAR_FORMAT = "yyyy";
+	protected static final String DAY_FORMAT = "dth";
+	protected static final String MONTH_FORMAT = "MMM";
+	private static final String DASH = " Ð ";
+
 	public String format(DateRange dateRange) {
 		if (dateRange.startAndEndsOnSameDay()) {
 			return formatSameDay(dateRange);
@@ -18,11 +23,11 @@ public class DateRangeFormat {
 	}
 
 	protected String defaultFormat(DateRange dateRange) {
-		return startMonthDayYear(dateRange) + " - " + endDayMonthYear(dateRange);
+		return startMonthDayYear(dateRange) + DASH + endDayMonthYear(dateRange);
 	}
 
 	protected String formatSameYear(DateRange dateRange) {
-		return startMonthDay(dateRange) + " - " + endMonthDayYear(dateRange);
+		return startMonthDay(dateRange) + DASH + endMonthDayYear(dateRange);
 	}
 
 	protected String formatSameDay(DateRange dateRange) {
@@ -30,7 +35,7 @@ public class DateRangeFormat {
 	}
 
 	protected String formatSameMonth(DateRange dateRange) {
-		return startMonthDay(dateRange) + " - " + endDayYear(dateRange);
+		return startMonthDay(dateRange) + DASH + endDayYear(dateRange);
 	}
 
 	protected String endDayMonthYear(DateRange dateRange) {
@@ -54,15 +59,15 @@ public class DateRangeFormat {
 	}
 
 	protected RichDateFormat dayYear() {
-		return new RichDateFormat("dth" + " " + "yyyy");
+		return new RichDateFormat(DAY_FORMAT + " " + YEAR_FORMAT);
 	}
 
 	protected RichDateFormat monthDay() {
-		return new RichDateFormat("MMM" + " " + "dth");
+		return new RichDateFormat(MONTH_FORMAT + " " + DAY_FORMAT);
 	}
 
 	protected RichDateFormat monthDayYear() {
-		return new RichDateFormat("MMM" + " " + "dth" + " " + "yyyy");
+		return new RichDateFormat(MONTH_FORMAT + " " + DAY_FORMAT + " " + YEAR_FORMAT);
 	}
 
 }

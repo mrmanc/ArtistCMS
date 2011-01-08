@@ -1,18 +1,17 @@
 package uk.co.suecrossfield.stripes.extension;
 
-import uk.co.suecrossfield.stripes.MyActionBeanContext;
-import uk.co.suecrossfield.stripes.WelcomeActionBean;
-
-import com.google.appengine.api.users.UserService;
-import com.google.appengine.api.users.UserServiceFactory;
-
-import net.sourceforge.stripes.action.ForwardResolution;
 import net.sourceforge.stripes.action.RedirectResolution;
 import net.sourceforge.stripes.action.Resolution;
 import net.sourceforge.stripes.controller.ExecutionContext;
 import net.sourceforge.stripes.controller.Interceptor;
 import net.sourceforge.stripes.controller.Intercepts;
 import net.sourceforge.stripes.controller.LifecycleStage;
+import uk.co.suecrossfield.stripes.AdminActionBean;
+import uk.co.suecrossfield.stripes.MyActionBeanContext;
+
+import com.google.appengine.api.users.User;
+import com.google.appengine.api.users.UserService;
+import com.google.appengine.api.users.UserServiceFactory;
 
 
 @Intercepts({LifecycleStage.HandlerResolution})
@@ -32,11 +31,12 @@ public class LoginInterceptor implements Interceptor {
 	}
 
 	private boolean isPublic(ExecutionContext ctx) {
-		return ctx.getActionBean().getClass().equals(WelcomeActionBean.class);
+		return ctx.getActionBean().getClass().equals(AdminActionBean.class) == false;
 	}
 
 	private boolean isLoggedIn(ExecutionContext ctx) {
-		return ((MyActionBeanContext)ctx.getActionBeanContext()).getUser() != null;
+		User user = ((MyActionBeanContext) ctx.getActionBeanContext()).getUser();
+		return user != null && user.getAuthDomain().equals("suecrossfield.co.uk");
 	}
 
 }

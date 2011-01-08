@@ -21,7 +21,7 @@
 					<td class="left side">&nbsp;</td>
 					<td class="content">
 						<ul class="menu">
-							<li><a href="index.html">About (home)</a></li>
+							<li><a href="/">About (home)</a></li>
 							<li><a href="gallery.html">Gallery</a></li>
 							<li><a href="links.html">Links</a></li>
 							<li><a href="cv.html">CV</a></li>

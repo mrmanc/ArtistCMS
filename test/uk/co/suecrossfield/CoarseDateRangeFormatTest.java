@@ -33,11 +33,11 @@ public class CoarseDateRangeFormatTest extends DateRangeFormatTest {
 
 	@Test
 	public void oneDayRangeOverMonthBoundary() {
-		assertThat(formatter.format(dateRange(JAN_31, FEB_01)), is("Jan - Feb 2011"));
+		assertThat(formatter.format(dateRange(JAN_31, FEB_01)), is("Jan Ð Feb 2011"));
 	}
 
 	@Test
 	public void oneDayRangeOverYearBoundary() {
-		assertThat(formatter.format(dateRange(DEC_31, JAN_01)), is("Dec 2010 - Jan 2011"));
+		assertThat(formatter.format(dateRange(DEC_31, JAN_01)), is("Dec 2010 Ð Jan 2011"));
 	}
 }

@@ -9,7 +9,7 @@
 <stripes:layout-render name="/WEB-INF/layout.jsp">
 	<stripes:layout-component name="contents">
 		<h1>Curriculum Vitae </h1>
-		<p>Please see the <a href="index.html">About page</a> for details of upcoming events.</p>
+		<p>Please see the <a href="/">About page</a> for details of upcoming events.</p>
 		<table width="100%" border="0" class="cv">
 			<tr>
 				<th colspan="3"><h2>QUALIFICATIONS</h2></th>

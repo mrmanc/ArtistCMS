@@ -1,9 +1,11 @@
 package uk.co.suecrossfield;
+
+import static org.hamcrest.Matchers.is;
+import static org.junit.Assert.assertThat;
+
 import java.util.Calendar;
 import java.util.Date;
 import java.util.GregorianCalendar;
-
-import junit.framework.Assert;
 
 import org.junit.Test;
 
@@ -15,27 +17,27 @@ public class RichDateFormatTest {
 
 	@Test
 	public void formatNormalDate() {
-		Assert.assertEquals("1 Jan 2011", new RichDateFormat("d MMM yyyy").format(JAN_1));
+		assertThat(new RichDateFormat("d MMM yyyy").format(JAN_1), is("1 Jan 2011"));
 	}
 
 	@Test
 	public void richFormatDate() {
-		Assert.assertEquals("1st Jan 2011", new RichDateFormat("dth MMM yyyy").format(JAN_1));
-		Assert.assertEquals("1st {1st} Jan 2011", new RichDateFormat("dth {dth} MMM yyyy").format(JAN_1));
-		Assert.assertEquals("1st Jan 1st 2011", new RichDateFormat("dth MMM dth yyyy").format(JAN_1));
-		Assert.assertEquals("1st Jan 2011 1st", new RichDateFormat("dth MMM yyyy dth").format(JAN_1));
+		assertThat(new RichDateFormat("dth MMM yyyy").format(JAN_1), is("1st Jan 2011"));
+		assertThat(new RichDateFormat("dth {dth} MMM yyyy").format(JAN_1), is("1st {1st} Jan 2011"));
+		assertThat(new RichDateFormat("dth MMM dth yyyy").format(JAN_1), is("1st Jan 1st 2011"));
+		assertThat(new RichDateFormat("dth MMM yyyy dth").format(JAN_1), is("1st Jan 2011 1st"));
 	}
 	
 	@Test
 	public void buildDateFormatter() {
-		Assert.assertEquals("{1} Jan 2011", new RichDateFormat("").buildDateFormatter("dth MMM yyyy").format(JAN_1));
+		assertThat(new RichDateFormat("").buildDateFormatter("dth MMM yyyy").format(JAN_1), is("{1} Jan 2011"));
 	}
 	
 	@Test
 	public void extractDay() {
-		Assert.assertEquals(1, new RichDateFormat("").extractDay("{1}"));
-		Assert.assertEquals(11, new RichDateFormat("").extractDay("{11}"));
-		Assert.assertEquals(111, new RichDateFormat("").extractDay("{111}"));
+		assertThat(new RichDateFormat("").extractDay("{1}"), is(1));
+		assertThat(new RichDateFormat("").extractDay("{11}"), is(11));
+		assertThat(new RichDateFormat("").extractDay("{111}"), is(111));
 	}
 	
 }
